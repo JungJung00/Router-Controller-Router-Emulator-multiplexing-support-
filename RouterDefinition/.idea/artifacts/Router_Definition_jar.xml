@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Router Definition:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Router_Definition_jar</output-path>
+    <root id="archive" name="Router Definition.jar">
+      <element id="module-output" name="Router Definition" />
+    </root>
+  </artifact>
+</component>
