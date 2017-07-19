@@ -8,6 +8,6 @@ import routerAmulator.RouterAmulator;
 public class Execute {
     public static void main(String args[]){
         RouterAmulator routerAmulator = new RouterAmulator();
-        routerAmulator.test();
+        routerAmulator.start();
     }
 }

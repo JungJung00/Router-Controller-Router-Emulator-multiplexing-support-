@@ -8,8 +8,6 @@ import org.json.simple.JSONObject;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
 
 import static common.Now.getTime;
 
@@ -20,7 +18,7 @@ import static common.Now.getTime;
 
 public class RouterAmulatorHandler extends Thread{
     private String IP = "127.0.0.1";
-    private short PORT = 3000;
+    private short PORT = 3001;
 
     private boolean power = false;
 
@@ -30,7 +28,6 @@ public class RouterAmulatorHandler extends Thread{
     private ObjectOutputStream objectOutputStream;
 
     private ServerSocket serverSocket;
-    private Selector selector;
     private Socket clientSocket;
 
     private static ErrorHandler errorHandler;
@@ -40,11 +37,14 @@ public class RouterAmulatorHandler extends Thread{
     private static PortforwardingConfigurationHandler portforwardingConfigurationHandler;
     private static DHCPConfigurationHandler dhcpConfigurationHandler;
 
-    public RouterAmulatorHandler() throws IOException{
+
+
+    public RouterAmulatorHandler(){
         inputStream = null;
         objectInputStream = null;
         outputStream = null;
         objectOutputStream = null;
+        serverSocket = null;
 
         errorHandler = new ErrorHandler();
         connectedDeviceHandler = new ConnectedDeviceHandler();
@@ -52,12 +52,6 @@ public class RouterAmulatorHandler extends Thread{
         ipAllocateConfigurationHandler = new IPAllocateConfigurationHandler();
         portforwardingConfigurationHandler = new PortforwardingConfigurationHandler();
         dhcpConfigurationHandler = new DHCPConfigurationHandler();
-
-        selector = Selector.open();
-
-        // Create server socket
-        ServerSocketChannel channel = ServerSocketChannel.open();
-        serverSocket = channel.socket();
     }
 
     @Override

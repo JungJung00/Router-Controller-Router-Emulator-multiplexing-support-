@@ -243,7 +243,7 @@ public class RouterControllerGUI {
                 connectedRouterListModel.addElement(selectedRouteridential);
 
                 /* TODO : Get IP and port from server */
-                selectedRouter = new RouterManager(/* temporary data */"127.0.0.1", 3000);
+                selectedRouter = new RouterManager(/* temporary data */"192.168.0.7", 5500);
 
                 // Save router information to keep the connection
                 connectedRouter.put(selectedRouteridential, selectedRouter);

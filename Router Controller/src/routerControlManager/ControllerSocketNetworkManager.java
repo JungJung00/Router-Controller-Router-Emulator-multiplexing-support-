@@ -66,7 +66,7 @@ public class ControllerSocketNetworkManager {
             }
 
             if (router.isClosed()) {
-                System.out.println("You should never reached here. Because it means there are some exception handling leaks.\nAnyway process is ongoing.");
+                // System.out.println("You should never reached here. Because it means there are some exception handling leaks.\nAnyway process is ongoing.");
                 router.connectRouter();
             }
 
@@ -79,7 +79,7 @@ public class ControllerSocketNetworkManager {
 
             /* Get objectStreams to receive socket(ResultSocket) */
             inputStream = router.getServerSocket().getInputStream();
-            objectInputStream = new ObjectInputStream(inputStream);
+                objectInputStream = new ObjectInputStream(inputStream);
 
             /* Receive result socket from router emulator */
             result = receiveResult();
@@ -91,7 +91,7 @@ public class ControllerSocketNetworkManager {
             objectOutputStream.close();
 
         } catch (IOException e){
-            e.printStackTrace();
+                    e.printStackTrace();
         }
 
         return result;

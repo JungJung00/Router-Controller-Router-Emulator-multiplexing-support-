@@ -21,7 +21,7 @@ public class RouterManager {
 
     public boolean isConnected(){ return connected; }
 
-    public boolean isClosed(){ return serverSocket.isClosed(); }
+    public boolean  isClosed(){ return serverSocket.isClosed(); }
 
     public boolean isPowered(){ return power; }
 
